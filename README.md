@@ -25,45 +25,41 @@ To set up the environment for MARVEL, please follow the steps below:
 2. Create a new virtual environment (optional but recommended):
 
    ```bash
-   python -m venv marvel-env
-   source marvel-env/bin/activate  # On Windows use `marvel-env\Scripts\activate`
+   conda create -n MARVEL
+   conda activate MARVEL
    ```
 
 3. Install the required dependencies:
 
    ```bash
-   pip install -r requirements.txt
-   ```
+   pip install pygcl (required install torch_geometric and dgl (https://github.com/PyGCL/PyGCL/tree/main)
+   pip install scanpy squidpy 
+   ``` 
 
-4. Ensure that you have the correct data files in the `data/` directory. If not, please download the dataset from [link-to-dataset].
 
 ## Running MARVEL
 
 To run the MARVEL framework, follow the steps below:
 
-1. Preprocess the data (if necessary):
+1. Run transductive label transfer and meanwhile learn embedding
 
    ```bash
-   python preprocess_data.py --input data/raw --output data/processed
+   python run.py
+   python run.py --baseline
    ```
 
-2. Train the MARVEL model:
+2. Run inductive label query:
 
    ```bash
-   python train.py --config configs/config.yaml
+   python run_inductive.py
    ```
 
-3. Run downstream tasks, such as microenvironment annotation:
+3. Run inductive novel ME identification:
 
    ```bash
-   python annotate.py --input data/processed --model outputs/marvel_model.pt --task transductive
+   python run_news.py
    ```
 
-4. Evaluate the results:
-
-   ```bash
-   python evaluate.py --predictions results/predictions.csv --groundtruth data/groundtruth.csv
-   ```
 
 ## Citation
 
