@@ -39,7 +39,7 @@ To set up the environment for MARVEL, please follow the steps below:
 
 ## Running MARVEL
 
-To run the MARVEL framework, follow the steps below:
+To run the MARVEL framework, follow the steps below and the CRC_CODEX dataset can be downloaded from "https://drive.google.com/file/d/1w5oB4r7EWSiRQFdeTtPZeHtceOCEtSRy/view?usp=sharing":
 
 1. Run transductive label transfer and meanwhile learn embedding
 
